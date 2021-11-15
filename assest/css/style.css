@@ -135,7 +135,7 @@ body {
   margin: 4rem;
 }
 
-.input-wrapper input[type="text"],
+.input-wrapper input,
 textarea {
   width: 100%;
   box-sizing: border-box;
@@ -146,35 +146,52 @@ textarea {
   font-weight: 600;
 }
 
-.input-wrapper input[type="text"]:focus-visible,
+.input-wrapper input:focus-visible,
 textarea:focus-visible {
   outline: 0;
+  border-color: #e8e925;
+}
+
+button:focus-visible {
+  outline-style: solid;
+  outline-color: rgb(232, 233, 37);
+  outline-width: 2px;
 }
 
 textarea {
   max-height: 110px;
 }
 
-a {
-  background-color: unset;
+button {
+  background-color: unset !important;
   color: #e91d6f !important;
-  cursor: pointer !important;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-top: 1rem;
-  transition: 0.5s;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  border-radius: 10px;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  margin-top: 1rem !important;
+  transition: 0.5s !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  border-radius: 10px !important;
+  border-width: unset !important;
+  border-style: none !important;
+  border-color: unset !important;
 }
 
-a:first-child {
-  margin-right: 1rem;
+button:disabled {
+  color: #979493 !important;
 }
 
-a:hover {
-  background-color: #ffffff;
+button:disabled:hover {
+  background-color: #7e7c74 !important;
+}
+
+button:first-child {
+  margin-right: 1rem !important;
+}
+
+button:hover {
+  background-color: #ffffff !important;
   color: #3e3e3e !important;
 }
