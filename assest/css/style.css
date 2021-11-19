@@ -106,6 +106,10 @@ body {
   }
 }
 
+#spinner {
+  display: none;
+}
+
 .title-wrapper {
   margin-top: 4rem;
   margin-left: 3rem;

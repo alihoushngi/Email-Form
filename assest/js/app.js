@@ -4,7 +4,9 @@ const sendBtn = document.querySelector("#sendBtn"),
   fullName = document.querySelector("#name"),
   email = document.querySelector("#email"),
   number = document.querySelector("#number"),
-  message = document.querySelector("#message");
+  message = document.querySelector("#message"),
+  resetBtn = document.querySelector("#resetBtn"),
+  form = document.querySelector("#email-form");
 
 // eventListenres
 eventListeners();
@@ -16,6 +18,11 @@ function eventListeners() {
   email.addEventListener("blur", validateField);
   number.addEventListener("blur", validateField);
   message.addEventListener("blur", validateField);
+
+  // reset btn
+  resetBtn.addEventListener("click", resetForm);
+
+  form.addEventListener("submit", submitForm);
 }
 
 //function
@@ -23,6 +30,29 @@ function eventListeners() {
 function appInit() {
   //disable send button on loaded
   sendBtn.disabled = true;
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  const spinner = document.querySelector("#spinner");
+  spinner.style.display = "block";
+
+  const sendEmailImg = document.createElement("img");
+  sendEmailImg.src = "../../assest/images/mail-unscreen.gif";
+  sendEmailImg.width = 150;
+  sendEmailImg.style.display = "block";
+
+  setTimeout(function () {
+    spinner.style.display = "none";
+
+    const loader = document.querySelector("#loaders");
+    loader.appendChild(sendEmailImg);
+
+    setTimeout(() => {
+      resetForm();
+      sendEmailImg.remove();
+    }, 5000);
+  }, 3000);
 }
 
 function validateField() {
@@ -64,4 +94,8 @@ function emailvalidate(filed) {
     filed.style.borderBottomColor = "#ec3b6f";
     filed.classList.add("error");
   }
+}
+
+function resetForm(e) {
+  form.reset();
 }
